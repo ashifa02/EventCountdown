@@ -1,17 +1,23 @@
-# Python
+# Python / Django
 venv/
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+*.pyd
 
 # Django
+events/db.sqlite3
+events/staticfiles/
 *.sqlite3
+
+# Environment variables
 .env
+*.env
 
 # React
 React/node_modules/
 React/dist/
 
-# Environment files
-.env
-.env.*
-!.env.example
+# IDE
+.vscode/
+.idea/
