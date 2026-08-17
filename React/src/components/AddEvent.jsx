@@ -47,3 +47,4 @@ function AddEvent({ onEventAdded }) {
 }
 
 export default AddEvent;
+

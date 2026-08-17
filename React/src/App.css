@@ -3,6 +3,8 @@
    ========================================================= */
 
 :root {
+  color-scheme: light;
+
   --bg: #f6f7fb;
   --card: #ffffff;
   --primary: #6c63ff;
@@ -13,6 +15,14 @@
   --danger: #ef476f;
   --danger-dark: #d9365f;
   --shadow: 0 10px 30px rgba(30, 30, 60, 0.08);
+    h1,
+    h2,
+    h3 {
+      color: var(--text);
+}
+}
+input {
+  color-scheme: light;
 }
 
 /* ---------- Reset ---------- */
@@ -359,4 +369,96 @@ body {
   .event-card {
     padding: 18px;
   }
+}
+
+/* =========================================================
+   EDIT EVENT
+   ========================================================= */
+
+.event-card input {
+  width: 100%;
+  padding: 13px 14px;
+  margin-bottom: 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  background: #fafaff;
+  color: var(--text);
+
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.event-card input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.12);
+}
+
+.edit-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.edit-buttons button {
+  flex: 1;
+  width: auto;
+}
+
+.edit-buttons button:first-child {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.edit-buttons button:first-child:hover {
+  background: var(--primary-dark);
+}
+
+.edit-buttons button:last-child {
+  background: #f1f1f5;
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+.edit-buttons button:last-child:hover {
+  background: #e6e6ed;
+  color: var(--text);
+}
+
+/* Event action buttons */
+
+.event-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.event-actions button {
+  flex: 1;
+  width: auto;
+}
+
+.edit-button {
+  background: #f1f0ff !important;
+  border-color: #d9d6ff !important;
+  color: var(--primary) !important;
+}
+
+.edit-button:hover {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: white !important;
+}
+
+.delete-button {
+  background: #fff5f7 !important;
+  border-color: #ffd6df !important;
+  color: var(--danger) !important;
+}
+
+.delete-button:hover {
+  background: var(--danger) !important;
+  border-color: var(--danger) !important;
+  color: white !important;
 }
