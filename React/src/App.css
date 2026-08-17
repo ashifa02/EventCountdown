@@ -1,36 +1,35 @@
 /* =========================================================
-   EVENT COUNTDOWN — MAIN STYLES
-   ========================================================= */
+   EVENT COUNTDOWN
+   Professional UI
+   Palette: Warm Cream + Sage + Slate
+========================================================= */
 
 :root {
-  color-scheme: light;
+  --bg: #f4f1ea;
+  --surface: #ffffff;
+  --surface-soft: #f8f7f3;
 
-  --bg: #f6f7fb;
-  --card: #ffffff;
-  --primary: #6c63ff;
-  --primary-dark: #554ccf;
-  --text: #171725;
-  --muted: #73738a;
-  --border: #e8e8f0;
-  --danger: #ef476f;
-  --danger-dark: #d9365f;
-  --shadow: 0 10px 30px rgba(30, 30, 60, 0.08);
-    h1,
-    h2,
-    h3 {
-      color: var(--text);
-}
-}
-input {
-  color-scheme: light;
+  --primary: #718096;
+  --primary-dark: #596b5d;
+  --primary-soft: #e6ece6;
+
+  --text: #252824;
+  --muted: #7b807a;
+
+  --border: #e2e0d8;
+
+  --danger: #b05252;
+  --danger-soft: #f8e9e7;
+
+  --shadow: 0 18px 45px rgba(45, 50, 45, 0.08);
 }
 
-/* ---------- Reset ---------- */
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
@@ -40,157 +39,561 @@ body {
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
-    Roboto,
-    Arial,
     sans-serif;
 
   background: var(--bg);
   color: var(--text);
+
+  color-scheme: light;
 }
 
-/* ---------- Main App ---------- */
-
-.app {
-  min-height: 100vh;
-  padding: 45px 30px 60px;
-  max-width: 1200px;
-  margin: 0 auto;
+button,
+input {
+  font-family: inherit;
 }
 
-/* ---------- Header ---------- */
-
-.app h1 {
-  text-align: center;
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 10px;
-  color: var(--text);
-}
-
-.subtitle {
-  text-align: center;
-  color: var(--muted);
-  font-size: 1rem;
-  margin-bottom: 25px;
-}
-
-.app > p:not(.subtitle) {
-  text-align: center;
-  color: var(--muted);
-  margin-bottom: 12px;
-}
-
-/* ---------- Logout ---------- */
-
-.app > button {
-  display: block;
-  margin: 0 auto 35px;
-
-  border: none;
-  background: transparent;
-  color: var(--primary);
-
-  font-size: 0.95rem;
-  font-weight: 600;
-
+button {
   cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.app > button:hover {
-  color: var(--primary-dark);
-  transform: translateY(-1px);
 }
 
 /* =========================================================
-   ADD EVENT FORM
-   ========================================================= */
+   LOGIN / REGISTER
+========================================================= */
 
-.add-event-form {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 18px;
+.auth-page {
+  min-height: 100vh;
 
-  padding: 25px;
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
 
-  display: flex;
-  gap: 14px;
-  align-items: center;
-
-  box-shadow: var(--shadow);
-
-  margin-bottom: 40px;
+  background: var(--bg);
 }
 
-.add-event-form input {
-  flex: 1;
+/* LEFT SHOWCASE */
 
-  padding: 14px 16px;
+.auth-showcase {
+  position: relative;
+
+  min-height: 100vh;
+  padding: 52px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  overflow: hidden;
+
+  background: #718096;
+  color: white;
+}
+
+.auth-showcase::before {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  right: -190px;
+  top: -170px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.auth-showcase::after {
+  content: "";
+
+  position: absolute;
+
+  width: 380px;
+  height: 380px;
+
+  left: -180px;
+  bottom: -190px;
+
+  border-radius: 50%;
+
+  background: rgba(206, 222, 210, 0.25);
+}
+
+/* LOGO */
+
+.brand-mark {
+  position: relative;
+  z-index: 2;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  background: rgba(255, 255, 255, 0.14);
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+/* SHOWCASE CONTENT */
+
+.showcase-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 590px;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+
+  color: #e1e9e3;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.showcase-content h1 {
+  margin: 0 0 24px;
+
+  max-width: 590px;
+
+  color: white;
+
+  font-size: clamp(42px, 5vw, 68px);
+
+  line-height: 1.02;
+
+  letter-spacing: -2.5px;
+}
+
+.showcase-content p {
+  max-width: 470px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 16px;
+
+  line-height: 1.7;
+}
+
+.showcase-footer {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  gap: 30px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+}
+
+/* RIGHT AUTH AREA */
+
+.auth-section {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px;
+
+  background: var(--bg);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 430px;
+
+  padding: 42px;
+
+  background: var(--surface);
 
   border: 1px solid var(--border);
-  border-radius: 10px;
 
-  font-size: 0.95rem;
+  border-radius: 24px;
+
+  box-shadow: var(--shadow);
+}
+
+.mobile-brand {
+  display: none;
+}
+
+/* AUTH HEADING */
+
+.auth-heading {
+  margin-bottom: 30px;
+}
+
+.auth-label {
+  margin: 0 0 12px;
+
+  color: var(--primary);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+}
+
+.auth-heading h2 {
+  margin: 0 0 10px;
+
   color: var(--text);
 
-  background: #fafaff;
+  font-size: 38px;
+
+  letter-spacing: -1.5px;
+}
+
+.auth-heading > p:last-child {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+/* AUTH FORM */
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 19px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.input-group label {
+  color: #363a36;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+.input-group input {
+  width: 100%;
+
+  padding: 15px 16px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 11px;
+
+  background: var(--surface-soft);
+
+  color: var(--text);
+
+  font-size: 14px;
 
   outline: none;
 
-  transition: 0.2s ease;
+  color-scheme: light;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.input-group input::placeholder {
+  color: #a1a49f;
+}
+
+.input-group input:focus {
+  border-color: var(--primary);
+
+  background: white;
+
+  box-shadow:
+    0 0 0 4px rgba(113, 128, 150, 0.12);
+}
+
+.auth-button {
+  width: 100%;
+
+  padding: 15px;
+
+  margin-top: 5px;
+
+  border: none;
+
+  border-radius: 11px;
+
+  background: var(--primary);
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.auth-button:hover {
+  background: var(--primary-dark);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(89, 107, 93, 0.22);
+}
+
+.auth-error {
+  margin: 0;
+
+  color: var(--danger);
+
+  font-size: 13px;
+}
+
+.auth-message {
+  margin: 0;
+
+  color: var(--primary-dark);
+
+  font-size: 13px;
+}
+
+.auth-switch {
+  margin-top: 25px;
+
+  text-align: center;
+
+  color: var(--muted);
+
+  font-size: 13px;
+}
+
+.auth-switch a {
+  color: var(--primary-dark);
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   EVENTS PAGE
+========================================================= */
+
+.app {
+  width: 100%;
+
+  min-height: 100vh;
+
+  padding: 55px 7% 70px;
+
+  background: var(--bg);
+}
+
+/* HEADER */
+
+.app > h1 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: clamp(38px, 5vw, 58px);
+
+  line-height: 1;
+
+  letter-spacing: -2px;
+}
+
+.app > p:not(.subtitle) {
+  margin: 14px 0 0;
+
+  color: var(--muted);
+
+  font-size: 15px;
+}
+
+/* LOGOUT */
+
+.app > button {
+  position: absolute;
+
+  top: 48px;
+  right: 7%;
+
+  padding: 10px 17px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  background: white;
+
+  color: var(--text);
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.app > button:hover {
+  background: var(--primary-soft);
+
+  border-color: #cfd8cf;
+}
+
+/* SUBTITLE */
+
+.subtitle {
+  margin: 10px 0 38px;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  letter-spacing: 0.2px;
+}
+
+/* =========================================================
+   ADD EVENT
+========================================================= */
+
+.add-event-form {
+  display: grid;
+
+  grid-template-columns: 1.3fr 1fr auto;
+
+  gap: 12px;
+
+  padding: 20px;
+
+  margin-bottom: 42px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 18px;
+
+  box-shadow: 0 8px 25px rgba(45, 50, 45, 0.04);
+}
+
+.add-event-form input {
+  min-width: 0;
+
+  padding: 13px 15px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  background: var(--surface-soft);
+
+  color: var(--text);
+
+  outline: none;
+
+  color-scheme: light;
 }
 
 .add-event-form input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.12);
+
+  background: white;
+
+  box-shadow:
+    0 0 0 3px rgba(113, 128, 150, 0.10);
 }
 
 .add-event-form button {
-  padding: 14px 22px;
+  padding: 13px 22px;
 
   border: none;
+
   border-radius: 10px;
 
   background: var(--primary);
+
   color: white;
 
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 600;
 
-  cursor: pointer;
-
-  transition: 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .add-event-form button:hover {
   background: var(--primary-dark);
+
   transform: translateY(-1px);
 }
 
 /* =========================================================
-   EVENTS
-   ========================================================= */
+   EVENTS GRID
+========================================================= */
 
 .events-container {
   display: grid;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns:
+    repeat(auto-fit, minmax(300px, 1fr));
 
-  gap: 22px;
+  gap: 20px;
 }
 
-/* ---------- Event Card ---------- */
+/* EVENT CARD */
 
 .event-card {
-  background: var(--card);
+  position: relative;
+
+  padding: 26px;
+
+  background: var(--surface);
 
   border: 1px solid var(--border);
-  border-radius: 18px;
 
-  padding: 25px;
+  border-radius: 20px;
 
-  box-shadow: var(--shadow);
+  box-shadow:
+    0 8px 25px rgba(45, 50, 45, 0.045);
 
   transition:
     transform 0.2s ease,
@@ -198,146 +601,334 @@ body {
 }
 
 .event-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 35px rgba(30, 30, 60, 0.12);
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 18px 40px rgba(45, 50, 45, 0.09);
 }
 
 .event-card h2 {
-  font-size: 1.35rem;
-  font-weight: 750;
-
-  margin-bottom: 22px;
+  margin: 0 0 22px;
 
   color: var(--text);
 
-  text-align: left;
+  font-size: 21px;
+
+  letter-spacing: -0.4px;
 }
 
 /* =========================================================
    COUNTDOWN
-   ========================================================= */
+========================================================= */
 
 .countdown {
   display: grid;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns:
+    repeat(4, 1fr);
 
-  gap: 10px;
+  gap: 8px;
 
   margin-bottom: 22px;
 }
 
 .countdown > div {
-  background: #f5f4ff;
+  padding: 14px 7px;
+
+  text-align: center;
 
   border-radius: 12px;
 
-  padding: 13px 5px;
-
-  text-align: center;
+  background: var(--primary-soft);
 }
 
 .countdown span {
   display: block;
 
-  font-size: 1.55rem;
-  font-weight: 800;
+  color: var(--text);
 
-  color: var(--primary);
+  font-size: 26px;
 
-  line-height: 1.2;
+  font-weight: 700;
+
+  line-height: 1.1;
 }
 
 .countdown small {
   display: block;
 
-  margin-top: 4px;
-
-  font-size: 0.7rem;
-  font-weight: 600;
+  margin-top: 5px;
 
   color: var(--muted);
+
+  font-size: 10px;
 
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+
+  letter-spacing: 0.7px;
 }
 
-/* ---------- Date ---------- */
+/* DATE */
 
 .date {
-  color: var(--muted);
+  padding-top: 15px;
 
-  font-size: 0.85rem;
+  margin: 0;
 
-  margin-bottom: 18px;
-
-  text-align: left;
-}
-
-/* ---------- Delete ---------- */
-
-.event-card button {
-  width: 100%;
-
-  padding: 11px;
-
-  border: 1px solid #ffd6df;
-  border-radius: 9px;
-
-  background: #fff5f7;
-  color: var(--danger);
-
-  font-size: 0.9rem;
-  font-weight: 650;
-
-  cursor: pointer;
-
-  transition: 0.2s ease;
-}
-
-.event-card button:hover {
-  background: var(--danger);
-  border-color: var(--danger);
-  color: white;
-}
-
-/* ---------- Empty State ---------- */
-
-.events-container > p {
-  grid-column: 1 / -1;
-
-  text-align: center;
-
-  padding: 50px 20px;
-
-  background: var(--card);
-
-  border: 1px dashed var(--border);
-  border-radius: 18px;
+  border-top: 1px solid var(--border);
 
   color: var(--muted);
+
+  font-size: 12px;
 }
 
 /* =========================================================
-   RESPONSIVE DESIGN
-   ========================================================= */
+   EVENT ACTIONS
+========================================================= */
 
-@media (max-width: 800px) {
-  .app {
-    padding: 30px 18px 45px;
+.event-actions {
+  display: flex;
+
+  gap: 9px;
+
+  margin-top: 20px;
+}
+
+.event-actions button {
+  padding: 9px 15px;
+
+  border-radius: 9px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+.edit-button {
+  border: 1px solid var(--border);
+
+  background: white;
+
+  color: var(--text);
+}
+
+.edit-button:hover {
+  background: var(--primary-soft);
+
+  border-color: #cbd5cb;
+}
+
+.delete-button {
+  border: 1px solid #efd5d2;
+
+  background: var(--danger-soft);
+
+  color: var(--danger);
+}
+
+.delete-button:hover {
+  background: #f3dcd9;
+}
+
+/* =========================================================
+   EDIT FORM
+========================================================= */
+
+.event-card input {
+  width: 100%;
+
+  margin-bottom: 12px;
+
+  padding: 12px 13px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 10px;
+
+  background: var(--surface-soft);
+
+  color: var(--text);
+
+  outline: none;
+
+  color-scheme: light;
+}
+
+.event-card input:focus {
+  border-color: var(--primary);
+
+  background: white;
+
+  box-shadow:
+    0 0 0 3px rgba(113, 128, 150, 0.10);
+}
+
+.edit-buttons {
+  display: flex;
+
+  gap: 9px;
+
+  margin-top: 6px;
+}
+
+.edit-buttons button {
+  padding: 10px 17px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: var(--primary);
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+.edit-buttons button:last-child {
+  background: #e9e8e3;
+
+  color: var(--text);
+}
+
+.edit-buttons button:hover {
+  opacity: 0.9;
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-state {
+  grid-column: 1 / -1;
+
+  padding: 70px 30px;
+
+  text-align: center;
+
+  background: var(--surface);
+
+  border: 1px dashed #d5d3cb;
+
+  border-radius: 20px;
+}
+
+.empty-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 18px;
+
+  border-radius: 16px;
+
+  background: var(--primary-soft);
+
+  font-size: 27px;
+}
+
+.empty-state h2 {
+  margin: 0 0 8px;
+
+  color: var(--text);
+
+  font-size: 20px;
+}
+
+.empty-state p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   EXPIRED EVENT
+========================================================= */
+
+.expired-state {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 15px;
+
+  margin-bottom: 22px;
+
+  border-radius: 12px;
+
+  background: var(--primary-soft);
+
+  color: var(--primary-dark);
+
+  font-size: 13px;
+}
+
+.expired-state span {
+  font-size: 21px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .auth-page {
+    display: block;
   }
 
-  .app h1 {
-    font-size: 2.3rem;
+  .auth-showcase {
+    display: none;
+  }
+
+  .auth-section {
+    min-height: 100vh;
+
+    padding: 25px;
+  }
+
+  .auth-card {
+    padding: 32px 25px;
+  }
+
+  .mobile-brand {
+    display: block;
+
+    margin-bottom: 35px;
+
+    color: var(--primary);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+  }
+
+  .app {
+    padding: 35px 20px 50px;
+  }
+
+  .app > button {
+    position: static;
+
+    margin-top: 20px;
   }
 
   .add-event-form {
-    flex-direction: column;
-  }
+    grid-template-columns: 1fr;
 
-  .add-event-form input,
-  .add-event-form button {
-    width: 100%;
+    padding: 16px;
   }
 
   .events-container {
@@ -345,155 +936,21 @@ body {
   }
 }
 
-@media (max-width: 450px) {
-  .app h1 {
-    font-size: 2rem;
-  }
+@media (max-width: 500px) {
 
-  .countdown {
-    gap: 6px;
-  }
-
-  .countdown > div {
-    padding: 10px 3px;
+  .auth-heading h2 {
+    font-size: 32px;
   }
 
   .countdown span {
-    font-size: 1.15rem;
+    font-size: 21px;
   }
 
   .countdown small {
-    font-size: 0.6rem;
+    font-size: 9px;
   }
 
   .event-card {
-    padding: 18px;
+    padding: 21px;
   }
 }
-
-/* =========================================================
-   EDIT EVENT
-   ========================================================= */
-
-.event-card input {
-  width: 100%;
-  padding: 13px 14px;
-  margin-bottom: 12px;
-
-  border: 1px solid var(--border);
-  border-radius: 10px;
-
-  background: #fafaff;
-  color: var(--text);
-
-  font-size: 0.95rem;
-  outline: none;
-}
-
-.event-card input:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.12);
-}
-
-.edit-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 8px;
-}
-
-.edit-buttons button {
-  flex: 1;
-  width: auto;
-}
-
-.edit-buttons button:first-child {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: white;
-}
-
-.edit-buttons button:first-child:hover {
-  background: var(--primary-dark);
-}
-
-.edit-buttons button:last-child {
-  background: #f1f1f5;
-  border-color: var(--border);
-  color: var(--muted);
-}
-
-.edit-buttons button:last-child:hover {
-  background: #e6e6ed;
-  color: var(--text);
-}
-
-/* Event action buttons */
-
-.event-actions {
-  display: flex;
-  gap: 10px;
-}
-
-.event-actions button {
-  flex: 1;
-  width: auto;
-}
-
-.edit-button {
-  background: #f1f0ff !important;
-  border-color: #d9d6ff !important;
-  color: var(--primary) !important;
-}
-
-.edit-button:hover {
-  background: var(--primary) !important;
-  border-color: var(--primary) !important;
-  color: white !important;
-}
-
-.delete-button {
-  background: #fff5f7 !important;
-  border-color: #ffd6df !important;
-  color: var(--danger) !important;
-}
-
-.delete-button:hover {
-  background: var(--danger) !important;
-  border-color: var(--danger) !important;
-  color: white !important;
-}
-
-.empty-state {
-  text-align: center;
-  padding: 50px 20px;
-  margin-top: 30px;
-}
-
-.empty-icon {
-  font-size: 50px;
-  margin-bottom: 10px;
-}
-
-.empty-state h2 {
-  margin-bottom: 8px;
-}
-
-.empty-state p {
-  color: #777;
-}
-
-.expired-state {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 15px;
-  margin-top: 15px;
-  border-radius: 12px;
-  background: #f3f0ff;
-}
-
-.expired-state span {
-  font-size: 22px;
-}
-
