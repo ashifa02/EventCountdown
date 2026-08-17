@@ -11,7 +11,7 @@ function AddEvent({ onEventAdded }) {
     try {
       const response = await api.post("events/", {
         title: title,
-        target_date: targetDate,
+        target_date: new Date(targetDate).toISOString(),
       });
 
       onEventAdded(response.data);

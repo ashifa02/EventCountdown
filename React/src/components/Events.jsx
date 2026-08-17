@@ -92,7 +92,7 @@ function Events() {
     try {
       const response = await api.patch(`events/${id}/`, {
         title: editTitle,
-        target_date: editDate,
+        target_date: new Date(editDate).toISOString(),
       });
 
       setEvents((prevEvents) =>
@@ -159,8 +159,12 @@ function Events() {
       <div className="events-container">
 
         {events.length === 0 ? (
-          <p>No events found.</p>
-        ) : (
+  <div className="empty-state">
+    <div className="empty-icon">📅</div>
+    <h2>No events yet</h2>
+    <p>Add your first event to start the countdown.</p>
+  </div>
+) : (
           events.map((event) => {
 
             const countdown =
@@ -257,8 +261,11 @@ function Events() {
 
                   </div>
                 ) : (
-                  <p>🎉 Event has arrived!</p>
-                )}
+  <div className="expired-state">
+    <span>🎉</span>
+    <strong>Event has arrived!</strong>
+  </div>
+)}
 
                 <p className="date">
                   {new Date(
